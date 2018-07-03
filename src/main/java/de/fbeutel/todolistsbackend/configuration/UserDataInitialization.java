@@ -16,7 +16,7 @@ public class UserDataInitialization {
   }
 
   private void initUserData() {
-    final User adminUser = User.builder().username("admin@gmail.com").password("admin").build();
+    final User adminUser = User.builder().username("admin@gmail.com").password("123456").build();
 
     userRepository.save(adminUser);
   }
