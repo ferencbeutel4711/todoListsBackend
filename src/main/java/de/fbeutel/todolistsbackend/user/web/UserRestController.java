@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.SneakyThrows;
+
 import de.fbeutel.todolistsbackend.exception.NotAuthorizedException;
 import de.fbeutel.todolistsbackend.user.domain.User;
 import de.fbeutel.todolistsbackend.user.domain.UserRepository;
@@ -20,8 +22,11 @@ public class UserRestController {
     this.userRepository = userRepository;
   }
 
+  @SneakyThrows
   @PostMapping("/login")
   public ResponseEntity<Void> login(@RequestBody final User userToLogin) {
+    // Thread.sleep(4000); // enable this to be able to see the loading animation in the app
+
     if (userToLogin == null || userToLogin.getUsername() == null || userToLogin.getPassword() == null) {
       throw new NotAuthorizedException();
     }
