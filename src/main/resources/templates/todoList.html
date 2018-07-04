@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <title>TodoList</title>
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+  <div th:each="todo : ${todos}" style="display: inline-block; text-align: left; width: 24%; min-width: 290px; padding: 8px">
+    <ul class="list-group">
+      <li th:each="attribute : ${todo}" class="list-group-item">
+        <span th:text="${attribute.key} + ':' + ${attribute.value}"
+              style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; display: inline-block; width: 100%;"></span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
